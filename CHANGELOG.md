@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Flash-Next NVFP4 Cyber (internal): SGLang compressed-tensors NVFP4 weight-only patch in `nvfp4-kernels/patches/` and serve example `examples/nvfp4-cyber.toml`, with tests.
+
 - `goethe serve` uses `$NVFP4_HOME/bin/ninfer-serve` when that file is executable, and does not build. `nvfp4-kernels/pack.sh` writes that layout with `libcudart.so.13` beside the binary.
 
 - OpenAI and Responses tool names may be 128 characters, the same limit the Anthropic adapter already had. A fit that cannot boot prints one line instead of a traceback.
