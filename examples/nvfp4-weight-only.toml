@@ -1,9 +1,10 @@
-# Example Qwen Flash-Next NVFP4 Cyber serve config; set NVFP4_CYBER_MODEL_DIR to the model tree.
+# Example Flash-Next NVFP4 weight-only (compressed-tensors) serve config.
+# Set NVFP4_WO_MODEL_DIR to the model tree.
 # Needs nvfp4-kernels/patches/sglang-nvfp4-weight-only.patch applied to the SGLang checkout.
 
 [model]
-path = "${NVFP4_CYBER_MODEL_DIR}"
-name = "qwen38-flash-next-nvfp4-cyber"
+path = "${NVFP4_WO_MODEL_DIR}"
+name = "qwen38-flash-next-nvfp4-wo"
 
 [serve]
 engine = "sglang"
@@ -24,7 +25,7 @@ extra_args = [
   "--speculative-num-steps", "3",
   "--speculative-eagle-topk", "1",
   "--speculative-num-draft-tokens", "4",
-  "--speculative-token-map", "${SPEC_HOT_VOCAB:-${NVFP4_CYBER_MODEL_DIR}/spec/hot_self_64k.pt}",
+  "--speculative-token-map", "${SPEC_HOT_VOCAB:-${NVFP4_WO_MODEL_DIR}/spec/hot_self_64k.pt}",
   "--mamba-full-memory-ratio", "0.95",
   "--context-length", "65536",
   "--max-running-requests", "1",
@@ -38,5 +39,5 @@ extra_args = [
   "--watchdog-timeout", "3600",
   "--reasoning-parser", "qwen3",
   "--tool-call-parser", "qwen",
-  "--served-model-name", "qwen38-flash-next-nvfp4-cyber",
+  "--served-model-name", "qwen38-flash-next-nvfp4-wo",
 ]

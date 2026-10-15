@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Flash-Next NVFP4 Cyber (internal): SGLang compressed-tensors NVFP4 weight-only patch in `nvfp4-kernels/patches/` and serve example `examples/nvfp4-cyber.toml`, with tests.
+- Flash-Next NVFP4 weight-only (compressed-tensors): SGLang patch in `nvfp4-kernels/patches/` and serve example `examples/nvfp4-weight-only.toml`, with tests.
 
 - `goethe serve` uses `$NVFP4_HOME/bin/ninfer-serve` when that file is executable, and does not build. `nvfp4-kernels/pack.sh` writes that layout with `libcudart.so.13` beside the binary.
 

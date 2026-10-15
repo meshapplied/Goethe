@@ -1,4 +1,4 @@
-"""Serve examples parse, and the Flash-Next NVFP4 Cyber example carries the measured settings."""
+"""Serve examples parse, and the Flash-Next NVFP4 weight-only example carries the measured settings."""
 import tomllib
 import unittest
 from pathlib import Path
@@ -27,12 +27,12 @@ class Examples(unittest.TestCase):
                 self.assertIn("serve", raw)
                 self.assertEqual(raw["serve"]["engine"], "sglang")
 
-    def test_cyber_example_matches_the_measured_c1_serve(self):
-        path = EXAMPLES / "nvfp4-cyber.toml"
+    def test_weight_only_example_matches_the_measured_c1_serve(self):
+        path = EXAMPLES / "nvfp4-weight-only.toml"
         with open(path, "rb") as f:
             raw = tomllib.load(f)
         args = _args(path)
-        self.assertEqual(raw["model"]["name"], "qwen38-flash-next-nvfp4-cyber")
+        self.assertEqual(raw["model"]["name"], "qwen38-flash-next-nvfp4-wo")
         self.assertEqual(_value(args, "--quantization"), "compressed-tensors")
         self.assertEqual(_value(args, "--speculative-algorithm"), "NEXTN")
         self.assertEqual(_value(args, "--speculative-num-steps"), "3")

@@ -33,9 +33,9 @@ Together about 5 % faster decode, see [RESULTS.md](RESULTS.md#patches). The thro
 
 Third-party attribution: [NOTICE](NOTICE).
 
-## Flash-Next NVFP4 Cyber (SGLang)
+## Flash-Next NVFP4 weight-only (SGLang)
 
-Serve the Flash-Next NVFP4 Cyber tree with SGLang, not NInfer. Its experts are compressed-tensors NVFP4 weight-only, which stock SGLang does not dispatch. Apply the patch to the SGLang checkout first, then start from [`examples/nvfp4-cyber.toml`](../examples/nvfp4-cyber.toml):
+Serve a Flash-Next NVFP4 weight-only (compressed-tensors) tree with SGLang, not NInfer. Stock SGLang does not dispatch that scheme. Apply the patch to the SGLang checkout first, then start from [`examples/nvfp4-weight-only.toml`](../examples/nvfp4-weight-only.toml):
 
 ```bash
 git -C "$SGLANG_DIR" apply --check "$PWD/patches/sglang-nvfp4-weight-only.patch"
